@@ -12,7 +12,33 @@ class HuffmanEncoding:
             encoded_text (str, optional): The encoded text to be decoded.
             root (Node, optional): The root node of the Huffman tree for decoding.
         """
-        pass
+        if src is not None:
+            self.src = src
+            self.tree_root = self._build_tree()
+            self.encoded_text = self._encode         
+
+    
+
+  
+
+    pass
+
+
+def_build_tree(self):
+
+    freq = {}
+
+    pq = MinPQ
+    for letter in freq.keys():
+                node = self.node(freq[letter], char= letter)
+                pq.insert(node)
+
+    while len(pq) > 1:
+         leftNode = pq.pop()
+         rightNode = pq.pop()
+         newNode = (leftNode + rightNode, leftNode.freq + rightNode.freq)
+         pq.insert(newNode)
+         
     
     class Node:
         def __init__(self, freq, char=None, left=None, right=None):
