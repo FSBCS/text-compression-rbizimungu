@@ -15,29 +15,31 @@ class HuffmanEncoding:
         if src is not None:
             self.src = src
             self.tree_root = self._build_tree()
-            self.encoded_text = self._encode         
+            self.encoded_text = self._encode  
+            self.dictiionary = self._build_dictionary       
 
     
 
-  
-
-    pass
 
 
-def_build_tree(self):
 
-    freq = {}
+    def _build_tree(self):
 
-    pq = MinPQ
-    for letter in freq.keys():
-                node = self.node(freq[letter], char= letter)
-                pq.insert(node)
+        freq = {}
 
-    while len(pq) > 1:
-         leftNode = pq.pop()
-         rightNode = pq.pop()
-         newNode = (leftNode + rightNode, leftNode.freq + rightNode.freq)
-         pq.insert(newNode)
+        for letter in self.src:
+                freq[letter] = freq.get(letter, 0) + 1
+                leaderboard = sorted(freq, key=lambda x: freq[x], reverse=True)
+        pq = MinPQ()
+        for letter in freq.keys():
+                        node = self.Node(freq[letter], char= letter)
+                        pq.insert(node)
+
+        while len(pq.size()) > 1:
+                leftNode = pq.pop()
+                rightNode = pq.pop()
+                newNode = self.Node(leftNode.freq + rightNode.freq, left=leftNode, right=rightNode)
+                pq.insert(newNode)
          
     
     class Node:
@@ -56,7 +58,14 @@ def_build_tree(self):
         Returns:
             str: The encoded text as a string of 0s and 1s.
         """
-        pass
+        dict = {}
+
+        for char in self.src:
+                 dict.append(self.dictionary[char])
+        return '' .join(dict)
+
+             
+        
 
     def source_text(self):
         """
@@ -72,7 +81,7 @@ def_build_tree(self):
         Returns:
             Node: The root node of the Huffman tree.
         """
-        pass
+       
     
     def _build_dictionary(self, node=None, prefix=''):
         """
