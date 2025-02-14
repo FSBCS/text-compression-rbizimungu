@@ -81,7 +81,7 @@ class HuffmanEncoding:
         Returns:
             Node: The root node of the Huffman tree.
         """
-       
+    root = _build_tree()
     
     def _build_dictionary(self, node=None, prefix=''):
         """
