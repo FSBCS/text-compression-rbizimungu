@@ -73,7 +73,17 @@ class HuffmanEncoding:
         Returns:
             str: The original source text.
         """
-        pass
+        decoded_text = ''
+        current_node = self.root
+        for i in self.encoded_text:
+            if i == '0':
+                current_node = current_node.left
+            else:
+                current_node = current_node.right
+            if current_node.is_leaf():
+                decoded_text += current_node.char
+                current_node = self.root
+        return decoded_text
 
     def root(self):
         """
